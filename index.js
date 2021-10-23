@@ -17,13 +17,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // cross origin access to allow backend to communicate with frontend
 app.use(cors());
 
-/**
- * Get route for testing if the API if functional
- * @return string API is running if functional
- */
-app.get('/test', (req, res) =>{
-    res.status(200).send("API is running! 🚀")
-});
+const db = require("./app/models");
+db.sequelize.sync();
+
+require("./app/routes/loan_application.routes")(app);
 
 /**
  * Post route for calculating a loan's payment options
