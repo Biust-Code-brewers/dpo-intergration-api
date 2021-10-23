@@ -42,8 +42,8 @@ exports.create = (req, res) => {
 
 // Retrieve all Clients from the database.
 exports.findAll = (req, res) => {
-    const fname = req.query.fname;
-    var condition = fname ? { fname: { [Op.like]: `%${fname}%` } } : null;
+    const omang = req.query.omang;
+    var condition = omang ? { omang: { [Op.like]: `%${omang}%` } } : null;
 
     Client.findAll({ where: condition })
         .then(data => {
@@ -59,15 +59,15 @@ exports.findAll = (req, res) => {
 
 // Find a single Client with an id
 exports.findOne = (req, res) => {
-    const id = req.params.id;
+    const omang = req.params.id;
 
-    Client.findByPk(id)
+    Client.findByPk(omang)
         .then(data => {
             res.send(data);
         })
         .catch(err => {
             res.status(500).send({
-                message: "Error retrieving Client with id=" + id
+                message: "Error retrieving Client with id=" + omang
             });
         });
 
@@ -75,10 +75,10 @@ exports.findOne = (req, res) => {
 
 // Update a Client by the id in the request
 exports.update = (req, res) => {
-    const id = req.params.id;
+    const omang = req.params.omang;
 
     Client.update(req.body, {
-        where: { id: id }
+        where: { omang: omang }
     })
         .then(num => {
             if (num === 1) {
@@ -87,13 +87,13 @@ exports.update = (req, res) => {
                 });
             } else {
                 res.send({
-                    message: `Cannot update Client with id=${id}. Maybe Client was not found or req.body is empty!`
+                    message: `Cannot update Client with id=${omang}. Maybe Client was not found or req.body is empty!`
                 });
             }
         })
         .catch(err => {
             res.status(500).send({
-                message: "Error updating Client with id=" + id
+                message: "Error updating Client with id=" + omang
             });
         });
 
@@ -101,10 +101,10 @@ exports.update = (req, res) => {
 
 // Delete a Client with the specified id in the request
 exports.delete = (req, res) => {
-    const id = req.params.id;
+    const omang = req.params.omang;
 
     Client.destroy({
-        where: { id: id }
+        where: { omang: omang }
     })
         .then(num => {
             if (num === 1) {
@@ -113,13 +113,13 @@ exports.delete = (req, res) => {
                 });
             } else {
                 res.send({
-                    message: `Cannot delete Client with id=${id}. Maybe Client was not found!`
+                    message: `Cannot delete Client with id=${omang}. Maybe Client was not found!`
                 });
             }
         })
         .catch(err => {
             res.status(500).send({
-                message: "Could not delete Client with id=" + id
+                message: "Could not delete Client with id=" + omang
             });
         });
 };
