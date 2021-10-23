@@ -18,7 +18,7 @@ exports.create = (req, res) => {
         loan_term: req.body.loan_term,
         maximum_amount: req.body.maximum_amount,
         take_home: req.body.take_home,
-
+        installment: req.body.installment
     };
 
     // Save Client in the database
