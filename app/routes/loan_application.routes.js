@@ -6,22 +6,26 @@ module.exports = app => {
     const firebase = require("../controllers/firebase.controller.js")
 
     const router = require("express").Router();
+    
+    // base urls
+    const clientURL = '/client';
+    const loanAppURL = '/loan-application';
 
-    // Create a new client
-    router.post("/new/client", clients.create);
+    // Create a new client -- client/new
+    router.post(`${clientURL}/new`, clients.create);
 
     // Retrieve all clients
-    router.get("/", clients.findAll);
+    router.get(clientURL, clients.findAll);
 
 
     // Retrieve a single client with omang
-    router.get("/:omang", clients.findOne);
+    router.get(`${clientURL}/:omang`, clients.findOne);
 
     // Update a client with omang
-    router.put("/:omang", clients.update);
+    router.put(`${clientURL}/:omang`, clients.update);
 
     // Delete a client with omang
-    router.delete("/:omang", clients.delete);
+    router.delete(`${clientURL}/:omang`, clients.delete);
 
     // Delete all clients
     router.delete("/delete/clients/all", clients.deleteAll);
@@ -31,16 +35,16 @@ module.exports = app => {
      * Routes for loan applications
      * **/
     //create loan application
-    router.post("/new/loan-application", loanApplications.create);
+    router.post(`${loanAppURL}/new`, loanApplications.create);
 
     //Get all loan applications
-    router.get("/loan-application", loanApplications.findAll);
+    router.get(loanAppURL,  loanApplications.findAll);
 
     //Get a single client with their omang
-    router.get("/loan-application:omang", loanApplications.findOne);
+    router.get(`${loanAppURL}/:omang`, loanApplications.findOne);
 
     //Delete a loan application using an Omang
-    router.delete("/loan-application:omang",loanApplications.delete)
+    router.delete(`${loanAppURL}/:omang`,loanApplications.delete)
 
     //Delete all clients from the database
     router.delete("loan-applications/delete", loanApplications.deleteAll)
