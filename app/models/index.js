@@ -22,6 +22,6 @@ db.sequelize = sequelize;
 db.clients = require("./clients.model.js")(sequelize, Sequelize);
 db.loanApplication = require("./loanaplication.model")(sequelize, Sequelize);
 
-db.clients.hasMany(db.loanApplication, {foreignKey: 'omang'})
+// db.loanApplication.belongsTo(db.clients, {foreignKey: 'omang', sourceKey: 'omang'})
 
 module.exports = db;

@@ -1,7 +1,8 @@
 module.exports = (sequelize, Sequelize) => {
     const loanApplication = sequelize.define("loanAplication", {
         omang: {
-            type: Sequelize.INTEGER
+            type: Sequelize.INTEGER,
+            foreignKey:true,
         },
         affordability: {
             type: Sequelize.DECIMAL.UNSIGNED

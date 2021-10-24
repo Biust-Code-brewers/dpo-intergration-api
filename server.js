@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // cross origin access to allow backend to communicate with frontend
 app.use(cors());
 
-const db = require("./app/models");
+const db = require("./app/models/index");
 db.sequelize.sync();
 
 require("./app/routes/loan_application.routes")(app);
