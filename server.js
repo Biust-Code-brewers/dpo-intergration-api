@@ -31,7 +31,7 @@ app.post('/calculateLoan', async(req, res) => {
 
     try {
         // get form data from the body
-        const formData = req.body.formData;
+        const formData = req.body.data;
 
         // call api and supply data provided
         const response = await axios.post(calculateLoanUrl, formData);
@@ -55,7 +55,7 @@ app.post('/calculateLoan', async(req, res) => {
 app.post('/sendSMS', async(req, res) => {
     try {
         // get params from body
-        const {recipient, message} = req.body.params;
+        const {recipient, message} = req.body.data;
 
         // check if both are present
         if (!(recipient && message)){
