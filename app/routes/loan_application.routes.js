@@ -47,7 +47,7 @@ module.exports = app => {
     router.delete(`${loanAppURL}/:omang`,loanApplications.delete)
 
     //Delete all clients from the database
-    router.delete("loan-applications/delete", loanApplications.deleteAll)
+    router.delete("/loan-applications/delete/all", loanApplications.deleteAll)
 
     /*
     interactions with the firebase database

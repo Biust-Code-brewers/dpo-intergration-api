@@ -2,8 +2,13 @@ module.exports = (sequelize, Sequelize) => {
     const Client = sequelize.define("client", {
         docId: {
             type: Sequelize.INTEGER,
-            autoIncrement: true
+            autoIncrement: true,
+            primaryKey: true,
         },
+        isExisting: {
+            type: Sequelize.BOOLEAN
+        }
+        ,
         fnames: {
             type: Sequelize.STRING
         },
@@ -12,7 +17,6 @@ module.exports = (sequelize, Sequelize) => {
         },
         omang: {
             type: Sequelize.INTEGER,
-            primaryKey: true,
         },
         dob: {
             type: Sequelize.STRING
@@ -38,7 +42,7 @@ module.exports = (sequelize, Sequelize) => {
         totalFixedAllowances: {
             type: Sequelize.DECIMAL.UNSIGNED
         },
-        basicSalary:{
+        basicSalary: {
             type: Sequelize.DECIMAL.UNSIGNED
         }
     });

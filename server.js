@@ -18,7 +18,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 
 const db = require("./app/models/index");
-db.sequelize.sync();
+// to drop existing database and resync the database
+db.sequelize.sync({force: true})
 
 require("./app/routes/loan_application.routes")(app);
 

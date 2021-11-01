@@ -5,8 +5,6 @@ const Op = db.Sequelize.Op;
 // Create and Save a new Client
 exports.create = (req, res) => {
 
-    console.log(req.body);
-
     const client = {
         fnames: req.body.fname,
         snames: req.body.sname,
@@ -53,8 +51,6 @@ exports.findAll = (req, res) => {
 // Find a single Client with an id
 exports.findOne = (req, res) => {
     const omang = req.params.omang;
-
-    console.log(omang)
 
     Client.findAll({where: {omang: req.params.omang}})
         .then(data => {
