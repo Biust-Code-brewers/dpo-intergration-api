@@ -4,27 +4,22 @@ const Op = db.Sequelize.Op;
 
 // Create and Save a new Client
 exports.create = (req, res) => {
-    // Validate request
-    if (!req.body.fname) {
-        res.status(400).send({
-            message: "Content can not be empty!"
-        });
-        return;
-    }
+
+    console.log(req.body);
 
     const client = {
-        docId: req.body.docId,
-        fname: req.body.fname,
-        sname: req.body.sname,
+        fnames: req.body.fname,
+        snames: req.body.sname,
         dob: req.body.dob,
         omang: req.body.omang,
         phoneNumber: req.body.phoneNumber,
         email: req.body.email,
-        maritalStatus: req.body.maritalStatus,
-        employer: req.body.employer,
-        grossSalary: req.body.grossSalary,
-        netPay: req.body.netPay,
-        totalFixedAllowances: req.body.totalFixedAllowances,
+        maritalStatus: req.body.MaritalStatus,
+        employer: req.body.Employer,
+        grossSalary: req.body.GrossSalary,
+        netPay: req.body.NetPay,
+        totalFixedAllowances: req.body.TotalFixedAllowances,
+        basicSalary: req.body.BasicSalary,
     };
 
     // Save Client in the database
@@ -42,10 +37,8 @@ exports.create = (req, res) => {
 
 // Retrieve all Clients from the database.
 exports.findAll = (req, res) => {
-    const omang = req.query.omang;
-    var condition = omang ? { omang: { [Op.like]: `%${omang}%` } } : null;
 
-    Client.findAll({ where: condition })
+    Client.findAll()
         .then(data => {
             res.send(data);
         })
@@ -59,9 +52,11 @@ exports.findAll = (req, res) => {
 
 // Find a single Client with an id
 exports.findOne = (req, res) => {
-    const omang = req.params.id;
+    const omang = req.params.omang;
 
-    Client.findByPk(omang)
+    console.log(omang)
+
+    Client.findAll({where: {omang: req.params.omang}})
         .then(data => {
             res.send(data);
         })
@@ -78,7 +73,7 @@ exports.update = (req, res) => {
     const omang = req.params.omang;
 
     Client.update(req.body, {
-        where: { omang: omang }
+        where: {omang: omang}
     })
         .then(num => {
             if (num === 1) {
@@ -104,7 +99,7 @@ exports.delete = (req, res) => {
     const omang = req.params.omang;
 
     Client.destroy({
-        where: { omang: omang }
+        where: {omang: omang}
     })
         .then(num => {
             if (num === 1) {
@@ -131,7 +126,7 @@ exports.deleteAll = (req, res) => {
         truncate: false
     })
         .then(nums => {
-            res.send({ message: `${nums} Clients were deleted successfully!` });
+            res.send({message: `${nums} Clients were deleted successfully!`});
         })
         .catch(err => {
             res.status(500).send({
@@ -141,17 +136,5 @@ exports.deleteAll = (req, res) => {
         });
 };
 
-// Find all published Clients
-// exports.findAllPublished = (req, res) => {
-//     Client.findAll({where: {published: true}})
-//         .then(data => {
-//             res.send(data);
-//         })
-//         .catch(err => {
-//             res.status(500).send({
-//                 message:
-//                     err.message || "Some error occurred while retrieving clients."
-//             });
-//         });
-// };
+
 

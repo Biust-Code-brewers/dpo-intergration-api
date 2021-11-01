@@ -12,7 +12,9 @@ const sendSMS = async (recipient, message) => {
     message = encodeURIComponent(message);
 
     // create url from encoded parameters
-    const url = `http://83.143.26.34/MMWebService/MessageMaster.aspx?Handler=SendTextMessage&Username=Bayport&Password=bay123&To=${recipient}&From=Bayport&Message=${message}&Options=0`;
+    const url = `http://83.143.26.34/MMWebService/MessageMaster.aspx?Handler=
+    SendTextMessage&Username=Bayport&Password=bay123&To=${recipient}
+    &From=Bayport&Message=${message}&Options=0`;
 
     // hit the url
     const response = await axios.get(url);

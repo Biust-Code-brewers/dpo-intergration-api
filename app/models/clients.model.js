@@ -38,6 +38,9 @@ module.exports = (sequelize, Sequelize) => {
         totalFixedAllowances: {
             type: Sequelize.DECIMAL.UNSIGNED
         },
+        basicSalary:{
+            type: Sequelize.DECIMAL.UNSIGNED
+        }
     });
 
     return Client;

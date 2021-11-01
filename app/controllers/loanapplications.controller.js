@@ -3,13 +3,8 @@ const LoanApplication = db.loanApplication;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
-    // Validate request
-    if (!req.body.fname) {
-        res.status(400).send({
-            message: "Content can not be empty!"
-        });
-        return;
-    }
+    console.log(req);
+
 
     const loanapplication = {
         omang: req.body.omang,
@@ -55,7 +50,7 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
     const omang = req.params.omang;
 
-    LoanApplication.findByPk(omang)
+    LoanApplication.findAll({where: {omang: req.params.omang}})
         .then(data => {
             res.send(data);
         })

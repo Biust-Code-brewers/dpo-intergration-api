@@ -6,10 +6,10 @@ module.exports = app => {
     const firebase = require("../controllers/firebase.controller.js")
 
     const router = require("express").Router();
-    
+
     // base urls
-    const clientURL = '/client';
-    const loanAppURL = '/loan-application';
+    const clientURL = '/clients';
+    const loanAppURL = '/loan-applications';
 
     // Create a new client -- client/new
     router.post(`${clientURL}/new`, clients.create);
@@ -28,7 +28,7 @@ module.exports = app => {
     router.delete(`${clientURL}/:omang`, clients.delete);
 
     // Delete all clients
-    router.delete("/delete/clients/all", clients.deleteAll);
+    router.delete("/delete/clients/delete/all", clients.deleteAll);
 
 
     /**

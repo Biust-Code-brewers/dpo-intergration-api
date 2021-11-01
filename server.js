@@ -12,7 +12,7 @@ const calculateLoanUrl = "http://10.16.32.26:443/calculateLoan";
 
 // for parsing request body
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 
 // cross origin access to allow backend to communicate with frontend
 app.use(cors());
@@ -27,11 +27,11 @@ require("./app/routes/loan_application.routes")(app);
  * @params formData object containing information required to calculate the loan
  * @return loanOptions object with array or loan payment options
  */
-app.post('/calculateLoan', async(req, res) => {
-
+app.post('/calculateLoan', async (req,
+                                  res) => {
     try {
         // get form data from the body
-        const formData = req.body.formData;
+        const formData = req.body.data;
 
         // call api and supply data provided
         const response = await axios.post(calculateLoanUrl, formData);
@@ -39,8 +39,7 @@ app.post('/calculateLoan', async(req, res) => {
         const data = {loanOptions: JSON.parse(response.data).section};
 
         res.status(200).send(data);
-    }
-    catch(err){
+    } catch (err) {
         console.log(err);
         // return any error info with 500 status code
         res.status(500).send(err.message)
@@ -52,15 +51,19 @@ app.post('/calculateLoan', async(req, res) => {
  * @params params object: {params : { recipient: '2677123456', message: 'Hello World!' } }
  * @return loanOptions object with array or loan payment options
  */
-app.post('/sendSMS', async(req, res) => {
+app.post('/sendSMS', async (req,
+                            res) => {
     try {
         // get params from body
-        const {recipient, message} = req.body.params;
+
+        const {recipient, message} = req.body.data;
 
         // check if both are present
-        if (!(recipient && message)){
+        if (!(recipient && message)) {
             // one or both are missing, send error message to client
-            res.status(400).send('Missing parameter(s). Required {"params" : { "recipient": "2677123456", "message": "Hello World!" } }');
+            res.status(400).send('Missing parameter(s). ' +
+                'Required {"params" : { "recipient": "2677123456", ' +
+                '"message": "Hello World!" } }');
         }
 
         // call sendSMS function with the parameters
@@ -68,8 +71,7 @@ app.post('/sendSMS', async(req, res) => {
 
         // return response from message API
         res.status(200).send(responseData);
-    }
-    catch (err) {
+    } catch (err) {
         // for other errors, send error message
         res.status(500).send(err.message);
     }
@@ -77,4 +79,4 @@ app.post('/sendSMS', async(req, res) => {
 
 // listen at endpoint
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, ()=> console.log(`Server Ready! at port ${PORT} 🚀`));
+app.listen(PORT, () => console.log(`Server Ready! at port ${PORT} 🚀`));
