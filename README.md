@@ -49,7 +49,7 @@ open and edit
 
 inside index.js you edit the line
 
-> const dbConfig = require("<path to your config file>/db.config.js");
+> const dbConfig = require("...(path to your config file)/db.config.js");
 
 # Set up custom ports
 
