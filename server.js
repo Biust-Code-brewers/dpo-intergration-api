@@ -1,3 +1,4 @@
+const apiKey = require("./app/config/loancalculatorapikey.js")
 const express = require('express')
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -35,7 +36,7 @@ app.post('/calculateLoan', async (req,
         const formData = req.body.data;
 
         // call api and supply data provided
-        const response = await axios.post(calculateLoanUrl, formData);
+        const response = await axios.post(calculateLoanUrl, formData, apiKey);
         // get the data if successful
         const data = {loanOptions: JSON.parse(response.data).section};
 
