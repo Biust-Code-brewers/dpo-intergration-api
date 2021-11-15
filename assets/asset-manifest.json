@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.567520dd.chunk.css",
+    "main.js": "/static/js/main.bdf31d77.chunk.js",
+    "main.js.map": "/static/js/main.bdf31d77.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.d78c5f2d.js",
+    "runtime-main.js.map": "/static/js/runtime-main.d78c5f2d.js.map",
+    "static/css/2.3b93738d.chunk.css": "/static/css/2.3b93738d.chunk.css",
+    "static/js/2.1b8c66b2.chunk.js": "/static/js/2.1b8c66b2.chunk.js",
+    "static/js/2.1b8c66b2.chunk.js.map": "/static/js/2.1b8c66b2.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.3b93738d.chunk.css.map": "/static/css/2.3b93738d.chunk.css.map",
+    "static/css/main.567520dd.chunk.css.map": "/static/css/main.567520dd.chunk.css.map",
+    "static/js/2.1b8c66b2.chunk.js.LICENSE.txt": "/static/js/2.1b8c66b2.chunk.js.LICENSE.txt",
+    "static/media/bayportlogo.4f6b78d7.png": "/static/media/bayportlogo.4f6b78d7.png",
+    "static/media/cover_image.ebdf1768.png": "/static/media/cover_image.ebdf1768.png",
+    "static/media/faqs.94493e3f.png": "/static/media/faqs.94493e3f.png",
+    "static/media/500.css": "/static/media/roboto-vietnamese-500-normal.b8e494da.woff2",
+    "static/media/tc.de3b55f5.pdf": "/static/media/tc.de3b55f5.pdf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d78c5f2d.js",
+    "static/css/2.3b93738d.chunk.css",
+    "static/js/2.1b8c66b2.chunk.js",
+    "static/css/main.567520dd.chunk.css",
+    "static/js/main.bdf31d77.chunk.js"
+  ]
+}
