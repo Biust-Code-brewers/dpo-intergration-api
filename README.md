@@ -1,7 +1,17 @@
 # node-server
 
-This is the node API for interacting with the calculator api to see how it works please see the README.md in
-this https://github.com/DURIGA-TECH/loan-calculator.git repository
+This is the Bayport Botswana loan calculator. Before using this calculator, connect to the vpn first and follow the following steps to start up the application.
+
+###Steps:
+
+```text
+1. Clone this repository: https://github.com/DURIGA-TECH/node-server.git
+2. Install node on on your machine by downloading it here https://nodejs.org/en/
+3. Run npm install on the root of the node-server folder you just cloned on your terminal
+4. Using the terminal on the root of the node-server folder you just cloned run: npm run dev
+5. Then navigate to http://localhost:5000/ on your local browser to access the loan calculator app
+```
+
 
 # Set up mysql database
 
@@ -66,40 +76,3 @@ app.listen(PORT, () => {
 ```
 
 replace port 8080 with your own custom port
-
-# Using this code as an Api
-
-This project can be used as an api between api for the Bayport loan calculator and the inhouse My-sql database but this
-api can be used to send data to any database
-
-To test this project as an api:
-
-use https:localhost:8080/api with the following routes
-
-post:
-> create new clients and add a new loan-application in the mysql database
-
-```
-1. /api/new/clients
-2. /api/loan-applications
-```
-
-Get:
-
-```
-1. /api/clients -> returns all the clients in the mysql database
-2. /api/clients/:id -> replace id with the actual id of the client and it will return that client
-```
-
-Put:
-
-```
-1. api/clients/:id -> saves a client of id specified into the mysql database client table
-```
-
-delete:
-
-```
-1. api/clients/:id -> deletes a client of specified id from thew mysql databse
-2. /delete/clients/all -> deletes all clients from the myslq database
-```
