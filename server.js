@@ -5,6 +5,7 @@ const cors = require('cors');
 const axios = require("axios");
 const path = require('path')
 const {sendSMS} = require("./functions");
+const calculateLoanUrl = require('./app/config/calculate-loan-url.js');
 
 // initialise express into app variable
 const app = express();
@@ -12,10 +13,8 @@ const app = express();
 app.use(express.static(path.resolve(__dirname, 'assets')))
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'assets', 'index.html'));
+    res.sendFile(path.resolve(__dirname, 'assets', 'index.html'));
 });
-// calculate loan external url
-const calculateLoanUrl = "http://10.16.32.26:443/calculateLoan";
 
 // for parsing request body
 app.use(bodyParser.json());
