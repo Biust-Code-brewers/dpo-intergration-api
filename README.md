@@ -1,8 +1,9 @@
 # node-server
 
-This is the Bayport Botswana loan calculator. Before using this calculator, connect to the vpn first and follow the following steps to start up the application.
+This is the Bayport Botswana loan calculator. Before using this calculator, connect to the vpn first and follow the
+following steps to start up the application.
 
-###Steps:
+### Steps:
 
 ```text
 1. Clone this repository: https://github.com/DURIGA-TECH/node-server.git
@@ -11,7 +12,6 @@ This is the Bayport Botswana loan calculator. Before using this calculator, conn
 4. Using the terminal on the root of the node-server folder you just cloned run: npm run dev
 5. Then navigate to http://localhost:5000/ on your local browser to access the loan calculator app
 ```
-
 
 # Set up mysql database
 
@@ -60,6 +60,20 @@ open and edit
 inside index.js you edit the line
 
 > const dbConfig = require("...(path to your config file)/db.config.js");
+
+# Configure test and production environments
+
+To configure for the test environments, create a .env file in the route of the project and add the
+following line in the file
+
+>NODE_ENV=development
+
+To configure for the production environments, create a .env file in the route of the project and add the
+following line in the file
+
+>NODE_ENV=production
+
+####NB: the .env file is not version controled since it canalso be used to save port and api keys
 
 # Set up custom ports
 

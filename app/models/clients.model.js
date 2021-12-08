@@ -16,7 +16,7 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING
         },
         omang: {
-            type: Sequelize.INTEGER,
+            type: Sequelize.STRING,
         },
         dob: {
             type: Sequelize.STRING
