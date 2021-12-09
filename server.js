@@ -10,12 +10,6 @@ const calculateLoanUrl = require('./app/config/calculate-loan-url.js');
 // initialise express into app variable
 const app = express();
 
-app.use(express.static(path.resolve(__dirname, 'assets')))
-
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'assets', 'index.html'));
-});
-
 // for parsing request body
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -28,6 +22,13 @@ const db = require("./app/models/index");
 db.sequelize.sync({force: true})
 
 require("./app/routes/loan_application.routes")(app);
+
+
+app.use(express.static(path.resolve(__dirname, 'assets')))
+
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'assets', 'index.html'));
+});
 
 /**
  * Post route for calculating a loan's payment options

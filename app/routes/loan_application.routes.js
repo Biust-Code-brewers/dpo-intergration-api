@@ -17,7 +17,6 @@ module.exports = app => {
     // Retrieve all clients
     router.get(clientURL, clients.findAll);
 
-
     // Retrieve a single client with omang
     router.get(`${clientURL}/:omang`, clients.findOne);
 
