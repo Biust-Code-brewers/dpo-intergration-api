@@ -1,5 +1,5 @@
 const axios = require('axios');
-
+const sms_api = require('./app/config/sms-api-url-config')
 /**
  * Send an SMS
  * @param recipient Phone number 26771234567
@@ -12,7 +12,7 @@ const sendSMS = async (recipient, message) => {
     message = encodeURIComponent(message);
 
     // create url from encoded parameters
-    const url = `http://83.143.26.34/MMWebService/MessageMaster.aspx?Handler=SendTextMessage&Username=Bayport&Password=bay123&To=${recipient}&From=Bayport&Message=${message}&Options=0`;
+    const url = `${sms_api.url}?Handler=${sms_api.handler}&Username=${sms_api.username}&Password=${sms_api.password}&To=${recipient}&From=Bayport&Message=${message}&Options=0`;
 
     // hit the url
     const response = await axios.get(url);
@@ -21,4 +21,4 @@ const sendSMS = async (recipient, message) => {
     return response.data;
 }
 
-module.exports = {sendSMS} ;
+module.exports = {sendSMS};

@@ -3,8 +3,6 @@ module.exports = app => {
 
     const loanApplications = require("../controllers/loanapplications.controller")
 
-    const firebase = require("../controllers/firebase.controller.js")
-
     const router = require("express").Router();
 
     // base urls
@@ -51,18 +49,6 @@ module.exports = app => {
     /*
     interactions with the firebase database
     */
-
-    //get all clients from the firebase database
-    router.get("/firebase/clients", firebase.getFbClients)
-
-    //create a new client and save it to the firebase database
-    router.post("/firebase/new/client", firebase.createFbClient)
-
-    //get all loan applications from firebase
-    router.get("/firebase/applications", firebase.getFbApps)
-
-    //save any errors that occur to the firebase database
-    router.post("/firebase/new/error", firebase.logFbErrors)
 
     app.use('/api/', router);
 };
