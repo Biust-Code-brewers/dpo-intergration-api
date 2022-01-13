@@ -28,6 +28,7 @@
   "devDependencies": {
     "axios": "^0.23.0",
     "cors": "^2.8.5",
+    "dotenv": "^11.0.0",
     "firebase-admin": "^10.0.0",
     "nodemon": "^2.0.12",
     "sequelize": "^6.11.0"

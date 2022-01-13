@@ -6,6 +6,9 @@ const axios = require("axios");
 const path = require('path')
 const {sendSMS} = require("./functions");
 const calculateLoanUrl = require('./app/config/calculate-loan-url.js');
+const https = require('https');
+const fs = require('fs');
+require('dotenv').config()
 
 // initialise express into app variable
 const app = express();
@@ -86,6 +89,25 @@ app.post('/sendSMS', async (req,
     }
 })
 
+const options = {
+    key: fs.readFileSync(
+        process.env.Https_KEY
+    ),
+    cert: fs.readFileSync(
+        process.env.Https_CERT
+    )
+};
+
+
+
 // listen at endpoint
 const PORT = process.env.PORT || 5000;
+https.createServer(options, (req, res) => {
+    res.writeHead(200);
+    res.end('Listening for https request\n');
+}).listen(PORT);
+
+
 app.listen(PORT, () => console.log(`Server Ready! at port ${PORT} 🚀`));
+
+
