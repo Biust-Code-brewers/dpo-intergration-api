@@ -50,5 +50,5 @@ module.exports = app => {
     interactions with the firebase database
     */
 
-    app.use('/api/', router);
+    app.use('/calcapi/', router);
 };
