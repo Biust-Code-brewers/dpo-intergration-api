@@ -19,7 +19,7 @@ app.use(cors());
 
 const db = require("./app/models/index");
 // to drop existing database and resync the database
-db.sequelize.sync({force: true})
+db.sequelize.sync({force: false})
 
 require("./app/routes/loan_application.routes")(app);
 
