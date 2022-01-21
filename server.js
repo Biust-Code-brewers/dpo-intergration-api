@@ -6,6 +6,8 @@ const axios = require("axios");
 const path = require('path')
 const {sendSMS} = require("./functions");
 const calculateLoanUrl = require('./app/config/calculate-loan-url.js');
+require('dotenv').config()
+
 
 // initialise express into app variable
 const app = express();

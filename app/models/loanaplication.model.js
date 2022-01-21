@@ -4,6 +4,9 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             foreignKey:true,
         },
+        selected:{
+            type: Sequelize.BOOLEAN
+        },
         affordability: {
             type: Sequelize.INTEGER
         },
