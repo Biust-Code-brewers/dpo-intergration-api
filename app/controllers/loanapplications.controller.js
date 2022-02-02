@@ -3,8 +3,6 @@ const LoanApplication = db.loanApplication;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
-    console.log(req);
-
 
     const loanapplication = {
         omang: req.body.omang,
@@ -13,7 +11,11 @@ exports.create = (req, res) => {
         loan_term: req.body.loan_term,
         maximum_amount: req.body.maximum_amount,
         take_home: req.body.take_home,
-        installment: req.body.installment
+        installment: req.body.installment,
+        basicSalary:req.body.basicSalary,
+        grossSalary:req.body.grossSalary,
+        netPay:req.body.netPay,
+        totalFixedAllowances:req.body.totalFixedAllowances,
     };
 
     // Save Client in the database
@@ -22,6 +24,7 @@ exports.create = (req, res) => {
             res.send(data);
         })
         .catch(err => {
+            console.log(err.message)
             res.status(500).send({
                 message:
                     err.message || "Some error occurred while creating a loan application."

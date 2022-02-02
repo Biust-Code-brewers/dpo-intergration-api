@@ -44,14 +44,14 @@ app.post('/calculateLoan', async (req,
         const formData = req.body.data;
 
         // call api and supply data provided
-        console.log("calculateLoanUrl:",calculateLoanUrl,"formData:", formData, "apiKey:",apiKey)
+        // console.log("calculateLoanUrl:",calculateLoanUrl,"formData:", formData, "apiKey:",apiKey)
         const response = await axios.post(calculateLoanUrl, formData, apiKey);
         // get the data if successful
         const data = {loanOptions: JSON.parse(response.data).section};
 
         res.status(200).send(data);
     } catch (err) {
-        console.log(err);
+        // console.log(err);
         // return any error info with 500 status code
         res.status(500).send(err.message)
     }

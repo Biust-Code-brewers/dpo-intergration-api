@@ -2,16 +2,31 @@ module.exports = (sequelize, Sequelize) => {
     const loanApplication = sequelize.define("loanAplication", {
         omang: {
             type: Sequelize.STRING,
-            foreignKey:true,
+            foreignKey: true,
         },
-        selected:{
+        selected: {
             type: Sequelize.BOOLEAN
+        },
+        employer: {
+            type: Sequelize.STRING
+        },
+        grossSalary: {
+            type: Sequelize.DECIMAL.UNSIGNED
+        },
+        netPay: {
+            type: Sequelize.DECIMAL.UNSIGNED
+        },
+        totalFixedAllowances: {
+            type: Sequelize.DECIMAL.UNSIGNED
+        },
+        basicSalary: {
+            type: Sequelize.DECIMAL.UNSIGNED
         },
         affordability: {
             type: Sequelize.INTEGER
         },
         rates: {
-            type: Sequelize.DECIMAL.UNSIGNED
+            type: Sequelize.STRING
         },
         loan_term: {
             type: Sequelize.INTEGER
@@ -22,7 +37,7 @@ module.exports = (sequelize, Sequelize) => {
         take_home: {
             type: Sequelize.STRING
         },
-        installment:{
+        installment: {
             type: Sequelize.STRING
         },
     });

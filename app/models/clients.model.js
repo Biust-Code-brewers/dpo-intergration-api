@@ -30,21 +30,6 @@ module.exports = (sequelize, Sequelize) => {
         maritalStatus: {
             type: Sequelize.STRING
         },
-        employer: {
-            type: Sequelize.STRING
-        },
-        grossSalary: {
-            type: Sequelize.DECIMAL.UNSIGNED
-        },
-        netPay: {
-            type: Sequelize.DECIMAL.UNSIGNED
-        },
-        totalFixedAllowances: {
-            type: Sequelize.DECIMAL.UNSIGNED
-        },
-        basicSalary: {
-            type: Sequelize.DECIMAL.UNSIGNED
-        }
     });
 
     return Client;
