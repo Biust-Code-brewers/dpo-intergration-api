@@ -37,7 +37,7 @@ app.get('*', (req, res) => {
  * @params formData object containing information required to calculate the loan
  * @return loanOptions object with array or loan payment options
  */
-app.post('/calculateLoan', async (req,
+app.post('/calculateInternal', async (req,
                                   res) => {
     try {
         // get form data from the body
@@ -53,6 +53,7 @@ app.post('/calculateLoan', async (req,
     } catch (err) {
         // console.log(err);
         // return any error info with 500 status code
+        console.log(err.message)
         res.status(500).send(err.message)
     }
 })
@@ -84,6 +85,7 @@ app.post('/sendSMS', async (req,
         res.status(200).send(responseData);
     } catch (err) {
         // for other errors, send error message
+        console.log(err.message)
         res.status(500).send(err.message);
     }
 })

@@ -14,10 +14,7 @@ exports.create = (req, res) => {
         email: req.body.email,
         maritalStatus: req.body.MaritalStatus,
         employer: req.body.Employer,
-        grossSalary: req.body.GrossSalary,
-        netPay: req.body.NetPay,
-        totalFixedAllowances: req.body.TotalFixedAllowances,
-        basicSalary: req.body.BasicSalary,
+
     };
 
     // Save Client in the database
@@ -26,6 +23,7 @@ exports.create = (req, res) => {
             res.send(data);
         })
         .catch(err => {
+            console.log(err.message || "Some error occurred while creating the client.")
             res.status(500).send({
                 message:
                     err.message || "Some error occurred while creating the client."
@@ -41,6 +39,8 @@ exports.findAll = (req, res) => {
             res.send(data);
         })
         .catch(err => {
+            console.log(err.message || "Some error occurred while creating the client.")
+
             res.status(500).send({
                 message:
                     err.message || "Some error occurred while retrieving clients."
@@ -57,6 +57,8 @@ exports.findOne = (req, res) => {
             res.send(data);
         })
         .catch(err => {
+            console.log(err.message || "Some error occurred while creating the client.")
+
             res.status(500).send({
                 message: "Error retrieving Client with id=" + omang
             });
@@ -83,6 +85,8 @@ exports.update = (req, res) => {
             }
         })
         .catch(err => {
+            console.log(err.message || "Some error occurred while creating the client.")
+
             res.status(500).send({
                 message: "Error updating Client with id=" + omang
             });
@@ -109,6 +113,8 @@ exports.delete = (req, res) => {
             }
         })
         .catch(err => {
+            console.log(err.message || "Some error occurred while creating the client.")
+
             res.status(500).send({
                 message: "Could not delete Client with id=" + omang
             });
@@ -125,6 +131,8 @@ exports.deleteAll = (req, res) => {
             res.send({message: `${nums} Clients were deleted successfully!`});
         })
         .catch(err => {
+            console.log(err.message || "Some error occurred while creating the client.")
+
             res.status(500).send({
                 message:
                     err.message || "Some error occurred while removing all Clients."

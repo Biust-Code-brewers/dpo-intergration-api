@@ -30,6 +30,9 @@ module.exports = (sequelize, Sequelize) => {
         maritalStatus: {
             type: Sequelize.STRING
         },
+        employer: {
+            type: Sequelize.STRING
+        },
     });
 
     return Client;

@@ -7,9 +7,6 @@ module.exports = (sequelize, Sequelize) => {
         selected: {
             type: Sequelize.BOOLEAN
         },
-        employer: {
-            type: Sequelize.STRING
-        },
         grossSalary: {
             type: Sequelize.DECIMAL.UNSIGNED
         },
