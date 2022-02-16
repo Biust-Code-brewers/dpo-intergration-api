@@ -1,11 +1,11 @@
 module.exports = (sequelize, Sequelize) => {
-    const loanApplication = sequelize.define("loanAplication", {
+    return sequelize.define("loanAplication", {
         omang: {
             type: Sequelize.STRING,
             foreignKey: true,
         },
         selected: {
-            type: Sequelize.BOOLEAN
+            type: Sequelize.INTEGER
         },
         grossSalary: {
             type: Sequelize.DECIMAL.UNSIGNED
@@ -38,6 +38,4 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING
         },
     });
-
-    return loanApplication;
 };

@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.8b94b6be.chunk.css",
-    "main.js": "/static/js/main.261559bb.chunk.js",
-    "main.js.map": "/static/js/main.261559bb.chunk.js.map",
+    "main.js": "/static/js/main.8058efb0.chunk.js",
+    "main.js.map": "/static/js/main.8058efb0.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.ecaf64f5.js",
     "runtime-main.js.map": "/static/js/runtime-main.ecaf64f5.js.map",
     "static/css/2.3431f8d6.chunk.css": "/static/css/2.3431f8d6.chunk.css",
-    "static/js/2.c6e2fd14.chunk.js": "/static/js/2.c6e2fd14.chunk.js",
-    "static/js/2.c6e2fd14.chunk.js.map": "/static/js/2.c6e2fd14.chunk.js.map",
+    "static/js/2.102f4e83.chunk.js": "/static/js/2.102f4e83.chunk.js",
+    "static/js/2.102f4e83.chunk.js.map": "/static/js/2.102f4e83.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.3431f8d6.chunk.css.map": "/static/css/2.3431f8d6.chunk.css.map",
     "static/css/main.8b94b6be.chunk.css.map": "/static/css/main.8b94b6be.chunk.css.map",
-    "static/js/2.c6e2fd14.chunk.js.LICENSE.txt": "/static/js/2.c6e2fd14.chunk.js.LICENSE.txt",
+    "static/js/2.102f4e83.chunk.js.LICENSE.txt": "/static/js/2.102f4e83.chunk.js.LICENSE.txt",
     "static/media/header.css": "/static/media/VAG Rounded LT W04 Thin.31d6cfe0.ttf",
     "static/media/landing.css": "/static/media/Myriad Pro Semibold.d47093a3.ttf",
     "static/media/footer.css": "/static/media/VAG Rounded Bold.b4344e24.ttf",
@@ -24,8 +24,8 @@
   "entrypoints": [
     "static/js/runtime-main.ecaf64f5.js",
     "static/css/2.3431f8d6.chunk.css",
-    "static/js/2.c6e2fd14.chunk.js",
+    "static/js/2.102f4e83.chunk.js",
     "static/css/main.8b94b6be.chunk.css",
-    "static/js/main.261559bb.chunk.js"
+    "static/js/main.8058efb0.chunk.js"
   ]
 }
