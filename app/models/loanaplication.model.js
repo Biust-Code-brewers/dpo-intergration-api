@@ -3,6 +3,8 @@ module.exports = (sequelize, Sequelize) => {
         omang: {
             type: Sequelize.STRING,
             foreignKey: true,
+            allowNull: false,
+            unique: true
         },
         selected: {
             type: Sequelize.INTEGER

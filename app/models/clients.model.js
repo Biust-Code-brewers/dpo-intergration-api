@@ -17,6 +17,8 @@ module.exports = (sequelize, Sequelize) => {
         },
         omang: {
             type: Sequelize.STRING,
+            allowNull: false,
+            unique: true
         },
         dob: {
             type: Sequelize.STRING

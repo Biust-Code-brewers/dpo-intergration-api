@@ -5,30 +5,56 @@ const Op = db.Sequelize.Op;
 // Create and Save a new Client
 exports.create = (req, res) => {
 
-    const client = {
+    let client = {
         fnames: req.body.fname,
         snames: req.body.sname,
         dob: req.body.dob,
-        omang: req.body.omang,
         phoneNumber: req.body.phoneNumber,
         email: req.body.email,
         maritalStatus: req.body.MaritalStatus,
         employer: req.body.Employer,
-
     };
 
-    // Save Client in the database
-    Client.create(client)
-        .then(data => {
-            res.send(data);
+    Client.update(client, {
+        where: {omang: req.body.omang}
+    })
+        .then(num => {
+            if (num[0] === 1) {
+                res.send({
+                    message: "Client was updated successfully."
+                });
+            } else {
+                client = {
+                    fnames: req.body.fname,
+                    snames: req.body.sname,
+                    dob: req.body.dob,
+                    omang: req.body.omang,
+                    phoneNumber: req.body.phoneNumber,
+                    email: req.body.email,
+                    maritalStatus: req.body.MaritalStatus,
+                    employer: req.body.Employer,
+                    isExisting: false,
+                };
+                Client.create(client)
+                    .then(data => {
+                        res.send(data);
+                    })
+                    .catch(err => {
+                        console.log(err.message || "Some error occurred while creating the client.")
+                        res.status(500).send({
+                            message:
+                                err.message || "Some error occurred while creating the client."
+                        });
+                    });
+            }
         })
         .catch(err => {
             console.log(err.message || "Some error occurred while creating the client.")
             res.status(500).send({
-                message:
-                    err.message || "Some error occurred while creating the client."
+                message: "Error updating Client with id=" + req.body.omang
             });
         });
+
 };
 
 // Retrieve all Clients from the database.
