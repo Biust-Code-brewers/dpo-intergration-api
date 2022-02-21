@@ -76,13 +76,15 @@ app.post('/sendSMS', async (req,
             res.status(400).send('Missing parameter(s). ' +
                 'Required {"params" : { "recipient": "2677123456", ' +
                 '"message": "Hello World!" } }');
+        }else{
+            // call sendSMS function with the parameters
+            const responseData = await sendSMS(recipient, message);
+
+            // return response from message API
+            res.status(200).send(responseData);
         }
 
-        // call sendSMS function with the parameters
-        const responseData = await sendSMS(recipient, message);
 
-        // return response from message API
-        res.status(200).send(responseData);
     } catch (err) {
         // for other errors, send error message
         console.log(err.message)

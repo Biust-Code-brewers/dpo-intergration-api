@@ -5,6 +5,7 @@ const Op = db.Sequelize.Op;
 exports.create = (req, res) => {
 
     let loanapplication = {
+        omang: req.body.omang,
         affordability: req.body.affordability,
         rates: req.body.rates,
         loan_term: req.body.loan_term,
@@ -17,36 +18,25 @@ exports.create = (req, res) => {
         totalFixedAllowances: req.body.totalFixedAllowances,
     };
 
+    let omang_value = req.body.omang
+
+    console.log(omang_value)
+
     LoanApplication.update(loanapplication, {
-        where: {omang: req.body.omang}
+        where: {omang: omang_value}
     })
         .then(num => {
             if (num[0] === 1) {
                 res.send({
                     message: "Client was updated successfully."
                 });
-            } else {
+            } else if (num[0] === 0) {
                 console.log(num)
-                loanapplication = {
-                    omang: req.body.omang,
-                    affordability: req.body.affordability,
-                    rates: req.body.rates,
-                    loan_term: req.body.loan_term,
-                    maximum_amount: req.body.maximum_amount,
-                    take_home: req.body.take_home,
-                    installment: req.body.installment,
-                    basicSalary: req.body.basicSalary,
-                    grossSalary: req.body.grossSalary,
-                    netPay: req.body.netPay,
-                    totalFixedAllowances: req.body.totalFixedAllowances,
-                };
                 LoanApplication.create(loanapplication)
                     .then(data => {
                         res.send(data);
                     })
                     .catch(err => {
-                        console.log(err.message)
-                        console.log(err)
                         res.status(500).send({
                             message:
                                 err.message || "Some error occurred while creating a loan application."
