@@ -130,32 +130,3 @@ exports.deleteAll = (req, res) => {
         });
 };
 
-/**
- * Not sure if this is required but we can find out from Coulson
- */
-// Update a loan application by the id in the request
-/*
-exports.update = (req, res) => {
-    const id = req.params.id;
-
-    Client.update(req.body, {
-        where: {id: id}
-    })
-        .then(num => {
-            if (num === 1) {
-                res.send({
-                    message: "Client was updated successfully."
-                });
-            } else {
-                res.send({
-                    message: `Cannot update Client with id=${id}. Maybe Client was not found or req.body is empty!`
-                });
-            }
-        })
-        .catch(err => {
-            res.status(500).send({
-                message: "Error updating Client with id=" + id
-            });
-        });
-
-};*/
