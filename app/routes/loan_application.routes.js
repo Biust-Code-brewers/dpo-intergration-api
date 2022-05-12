@@ -3,11 +3,14 @@ module.exports = app => {
 
     const loanApplications = require("../controllers/loanapplications.controller")
 
+    const employers = require("../controllers/employer.controller")
+
     const router = require("express").Router();
 
     // base urls
     const clientURL = '/clients';
     const loanAppURL = '/loan-applications';
+    const empUrl='/employers'
 
     // Create a new client -- client/new
     router.post(`${clientURL}/new`, clients.create);
@@ -26,6 +29,21 @@ module.exports = app => {
 
     // Delete all clients
     router.delete("/delete/clients/delete/all", clients.deleteAll);
+
+    /**
+     * Routes for employer
+     * **/
+    //creates a new employer
+    router.post(`${empUrl}/new`,employers.create )
+
+    //returns all employers in the database
+    router.get(`${empUrl}/all`,employers.findAll )
+
+    //update a specific employer
+    router.put(`${empUrl}/update`,employers.update )
+
+    //delete a specific employer
+    router.delete(`${empUrl}/delete`,employers.delete )
 
 
     /**

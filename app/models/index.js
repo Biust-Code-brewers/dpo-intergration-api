@@ -21,5 +21,6 @@ db.sequelize = sequelize;
 
 db.clients = require("./clients.model.js")(sequelize, Sequelize);
 db.loanApplication = require("./loanaplication.model")(sequelize, Sequelize);
+db.employers = require("./employer.model")(sequelize, Sequelize);
 
 module.exports = db;
