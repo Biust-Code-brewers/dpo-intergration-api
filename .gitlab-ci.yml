@@ -1,0 +1,8 @@
+stages:
+- deploy
+trigger_build_pipeline:
+  stage: deploy
+  trigger:
+    project: "botswana/loan-calculator-pipeline"
+    branch: "master"
+    strategy: depend
