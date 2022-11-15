@@ -1,65 +1,15 @@
 # node-server
 
-This is the Bayport Botswana loan calculator. Before using this calculator, connect to the vpn first and follow the
-following steps to start up the application.
+This is the Tiro e teng api to connect to the DPO
 
 ### Steps:
 
 ```text
-1. Clone this repository: https://github.com/DURIGA-TECH/node-server.git
+1. Clone this repository
 2. Install node on on your machine by downloading it here https://nodejs.org/en/
 3. Run npm install on the root of the node-server folder you just cloned on your terminal
 4. Using the terminal on the root of the node-server folder you just cloned run: npm run dev
-5. Then navigate to http://localhost:5000/ on your local browser to access the loan calculator app
 ```
-
-# Set up mysql database
-
-navigate to the
-> node-server/app/config
-
-And edit
-
-> db.config.js
-
-configuration for MySQL database are saved and stored in this file. in the file there is the following code snippet
-
-```javascript
-module.exports = {
-    HOST: "localhost",
-    USER: "root",
-    PASSWORD: "12345678",
-    DB: "testdb",
-    dialect: "mysql",
-    pool: {
-        max: 5,
-        min: 0,
-        acquire: 30000,
-        idle: 10000
-    }
-};
-```
-
-First five parameters are for MySQL connection. pool is optional, it will be used for Sequelize connection pool
-configuration:
-
-```
-max: maximum number of connection in pool
-min: minimum number of connection in pool
-idle: maximum time, in milliseconds, that a connection can be idle before being released
-acquire: maximum time, in milliseconds, that pool will try to get connection before throwing error
-```
-
-when the above step is done you configure your app so that it can locate the configurations and this is done in the file
-at
-> app/models/
-
-open and edit
-> index.js
-
-inside index.js you edit the line
-
-> const dbConfig = require("...(path to your config file)/db.config.js");
 
 # Configure test and production environments
 
@@ -73,7 +23,46 @@ following line in the file
 
 >NODE_ENV=production
 
-####NB: the .env file is not version controled since it canalso be used to save port and api keys
+# Configure DPO Settings
+URL to redirect the customer after the payment.
+The customer will be redirected to this URL with the below variables in GET method.
+You can send your link with additional variables, the system will recognize it and the additional variables will be sent out with “&” instead of “?” in the beginning.
+Variables:
+
+TransID - Transaction ref.
+CCDapproval - Approval number
+PnrID - Customer ref
+TransactionToken - Transaction ref. (repeated)
+CompanyRef - Customer ref. (repeated)
+
+>COMPANY_TOKEN=_your token goes here_
+
+URL to let the customer go back from the payment page.
+The customer will be redirected to this URL with "TransactionToken" and "CompanyRef"
+variables in GET method. You can send your link with additional variables, the system
+will recognize it and the additional variables will be sent our with "&" instead of "?" in the beginning
+> REDIRECT_URL= _url_
+
+url to redirect customers after transaction
+>BACK_URL=_url_
+
+Number of hours to payment time limit
+>PTL=_8_
+
+Define if “PTL” tag is hours or minutes. options: “hours” or “minutes”
+>PTL_TYPE=
+
+Internal accounting reference number
+>COMPANY_ACC_REF=
+
+Service type number according to the options accepted from DPO
+>SERVICE_TYPE=5525
+
+Service type name according to the options accepted from DPO
+>SERVICE_TYPE_NAME=
+
+
+####NB: the .env file is not version controlled since it can also be used to save port and api keys
 
 # Set up custom ports
 
